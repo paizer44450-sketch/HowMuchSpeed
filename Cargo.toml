@@ -1,0 +1,24 @@
+[package]
+name = "vitesse_boss"
+version = "0.70.3"
+edition = "2024"
+description = "Mod Elden Ring : affronter les bosses à vitesse de jeu choisie (étape 3 : Table ronde vide comme lieu principal)"
+
+[lib]
+# Une DLL Windows, chargée dans le jeu par Mod Engine 2.
+crate-type = ["cdylib"]
+
+[dependencies]
+# fromsoftware-rs (Vincent Swarte et contributeurs), licence MIT/Apache « non-IA ».
+# Version figée pour que la compilation donne toujours le même résultat.
+eldenring = { git = "https://github.com/vswarte/fromsoftware-rs", rev = "57023153d786c4b13fe95d9170e6dcd9d35093ea" }
+fromsoftware-shared = { git = "https://github.com/vswarte/fromsoftware-rs", rev = "57023153d786c4b13fe95d9170e6dcd9d35093ea" }
+# Fonctions de Windows (retrouver le programme du jeu en mémoire). Licence MIT/Apache.
+windows = { version = "0.61", features = ["Win32_System_LibraryLoader"] }
+
+# hudhook (Andrea Venuta), licence MIT : dessin du texte de la vitesse par-dessus l'image
+# (DirectX 12 + Dear ImGui, licence MIT). Version figée.
+hudhook = { git = "https://github.com/veeenu/hudhook", rev = "6a361de92396bcbb1f46cec31348fd73344ed031", default-features = false, features = ["dx12"] }
+
+[profile.release]
+opt-level = 3
