@@ -1,0 +1,26 @@
+# Build output
+/target/
+
+# Game files (property of FromSoftware / Bandai Namco): never publish them
+*.bin
+*.dcx
+*.bnd
+*.msgbnd
+*.ffxbnd
+*.msb
+*.fmg
+*.fxr
+*.flver
+*.bk2
+*.sl2
+/modengine/
+/outils/
+/textes/
+
+# Personal files: logs and saved settings
+/journal/
+*.log
+reglages_effets.txt
+
+# Archives
+*.zip
